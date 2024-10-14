@@ -23,43 +23,43 @@ const fileManager = (username) => {
     const args = input.split(' ').slice(1);
     switch (command) {
       case 'cd':
-        handleInvalidCommand(() => Nav.down(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Nav.down(args[0]), args.length, 1);
         break;
       case 'up':
-        handleInvalidCommand(Nav.up, args.length, 0);
+        await handleInvalidCommand(Nav.up, args.length, 0);
         break;
       case 'ls':
         await handleInvalidCommand(Fs.list, args.length, 0);
         break;
       case 'cat':
-        handleInvalidCommand(() => Fs.read(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Fs.read(args[0]), args.length, 1);
         break;
       case 'add':
-        handleInvalidCommand(() => Fs.create(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Fs.create(args[0]), args.length, 1);
         break;
       case 'rn':
-        handleInvalidCommand(() => Fs.rename(args[0], args[1]), args.length, 2);
+        await handleInvalidCommand(() => Fs.rename(args[0], args[1]), args.length, 2);
         break;
       case 'cp':
-        handleInvalidCommand(() => Fs.copy(args[0], args[1]), args.length, 2);
+        await handleInvalidCommand(() => Fs.copy(args[0], args[1]), args.length, 2);
         break;
       case 'mv':
-        handleInvalidCommand(() => Fs.move(args[0], args[1]), args.length, 2);
+        await handleInvalidCommand(() => Fs.move(args[0], args[1]), args.length, 2);
         break;
       case 'rm':
-        handleInvalidCommand(() => Fs.remove(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Fs.remove(args[0]), args.length, 1);
         break;
       case 'os':
-        handleInvalidCommand(() => Os.logInfo(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Os.logInfo(args[0]), args.length, 1);
         break;
       case 'hash':
-        handleInvalidCommand(() => Hasher.calculateHash(args[0]), args.length, 1);
+        await handleInvalidCommand(() => Hasher.calculateHash(args[0]), args.length, 1);
         break;
       case 'compress':
-        handleInvalidCommand(() => Zip.compress(args[0], args[1]), args.length, 2);
+        await handleInvalidCommand(() => Zip.compress(args[0], args[1]), args.length, 2);
         break;
       case 'decompress':
-        handleInvalidCommand(() => Zip.decompress(args[0], args[1]), args.length, 2);
+        await handleInvalidCommand(() => Zip.decompress(args[0], args[1]), args.length, 2);
         break;
       case '.exit':
         process.exit();
